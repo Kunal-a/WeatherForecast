@@ -1,20 +1,72 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="head" >
+  <ion-toolbar style="background-color: aqua;" >
+    <ion-title style="font-size: 20px; justify-content: center; text-align: center;  color:#f1bf61 ;">Weather Forecast</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content style="--ion-background-color: #000000"ng-model="cityName" [fullscreen]="true" >
+
+  <div>
+    <ion-searchbar [(ngModel)]="cityName" (ngModelChange)="loadData()" animated="true"
+      placeholder="Search City" color="white" class="custom-searchbar">
+    </ion-searchbar>
   </div>
+
+  <div *ngIf="!Loading" >
+  <ion-card class="cardStyle">
+    <ion-item lines="none">
+      <p style="font-weight: 500; color: white;">Today's Report</p>
+      <ion-label id="date" slot="end">{{todayDate|date:"EEE dd MMM YY" }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <span id="temp"> {{(weatherTemp?.main?.temp - 273.15).toFixed(0) }} </span>
+      <span style="font-size: 1.3em; font-weight: bold;">°C</span>
+      <img slot="end"  width="140px" src="{{ weatherIcon }}" alt="Weather Icon" />
+    </ion-item>
+
+    <ion-item lines="none" id="locationIcon">
+      <ion-icon name="location"></ion-icon>
+      <span> {{cityName}} </span>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="cardStyle">
+    <ion-item>
+      <span>Maximum Temp</span>
+      <span slot="end">{{(weatherTemp?.main?.temp_max -273.15).toFixed(0)}}</span>
+      <span></span>
+    </ion-item>
+    <ion-item>
+      <span>Minimum Temp</span>
+      <span slot="end">{{(weatherTemp?.main?.temp_min -273.15).toFixed(0)}}</span>
+    </ion-item>
+    <ion-item>
+      <span>Humidity</span>
+      <span slot="end"> {{(weatherTemp?.main?.humidity)}} % </span>
+    </ion-item>
+  </ion-card>
+
+ <div>
+
+
+
+ </div>
+
+
+
+</div>
+
+
+
+<div *ngIf="Loading" class="noData">
+
+
+  <img src="../../assets/img_2-removebg-preview.png " alt="">
+
+</div>
+
+
+
 </ion-content>

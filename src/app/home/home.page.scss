@@ -25,3 +25,75 @@
 #container a {
   text-decoration: none;
 }
+
+// ion-searchbar {
+//   --background: #228e9aac;
+//   --height: 70px;
+
+//   &::part(input) {
+//     color: rgb(255, 253, 253);
+//   }
+// }
+
+
+.custom-searchbar {
+  margin-top: 20px;
+  height: 50px;
+margin-left: 20px;
+margin-right: 20px;
+  width: auto;
+  color: white;
+  background-color: #f1bf61;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 100px;
+}
+
+.cardStyle{
+  border-radius: 20px;
+  --ion-background-color:#3f2900;
+
+
+  span{
+    color: white;
+    font-weight: 300;
+  }
+#temp{
+  font-weight:300 ;
+  font-size: 4em ;
+  margin: 5px;
+}
+
+#locationIcon{
+  color: #f2c779;
+}
+
+#date{
+  color: #f7d89e;
+}
+
+
+}
+
+.noData{
+  padding-top: 200px;
+  margin: 50px;
+
+  justify-content: center;
+  align-items: center;
+
+}
+ion-content {
+  background-color: black;
+}
+
+h1{
+  font-size: 2rem;
+  font-family: 'Montserrat';
+  font-weight: normal;
+  color: #fafdaa;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+
